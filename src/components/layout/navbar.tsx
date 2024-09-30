@@ -26,8 +26,13 @@ const Navbar = () => {
                         </ul>
                     </nav>
                     <div className='flex items-center gap-4'>
-                        <Button asChild className={buttonVariants({variant: 'ghost', size: 'sm'})}>
+                        {/* <Button asChild className={buttonVariants({variant: 'ghost', size: 'sm'})}>
                             <Link href='/'>Login</Link>
+                        </Button> */}
+                        <Button asChild className={buttonVariants({ size: 'sm', className: 'md:flex' })}>
+                            <Link href='/'>
+                                Start free trial
+                            </Link>
                         </Button>
                     </div>
                 </div>

@@ -1,13 +1,24 @@
 // import { Footer, Navbar } from '@/components'
-import { Container } from "@/components";
+import { Container, Icons } from "@/components";
 import Wrapper from "@/components/global/wrapper";
+import SectionBadge from "@/components/ui/badge";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { LampContainer } from "@/components/ui/lamp";
+import Marquee from "@/components/ui/marquee";
+import { features, perks, pricingCards, reviews } from "@/constants";
+import { cn } from "@/lib/utils";
+import { ArrowRight, ChevronRight, UserIcon, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
+
+  const firstRow = reviews.slice(0, reviews.length / 2);
+  const secondRow = reviews.slice(reviews.length / 2);
+
   return (
     <section className="w-full relative flex items-center justify-center flex-col px-4 md:px-0 py-8">
 
@@ -68,12 +79,270 @@ export default function Home() {
                   className="rounded-md lg:rounded-xl bg-foreground/10 shadow-2xl ring-1 ring-border"
                 />
 
-                <BorderBeam size={250} duration={12} delay={9}/>
+                <BorderBeam size={250} duration={12} delay={9} />
               </div>
             </div>
           </div>
         </Container>
       </Wrapper>
+
+      {/* how it works */}
+      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
+        <Container>
+          <div className="max-w-md mx-auto text-start md:text-center">
+            <SectionBadge title="The Process" />
+            <h2 className="text-3xl lg:text-4xl font-semibold mt-6  capitalize text-gradient">
+              Three steps to build your dream website
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Turn your vision into reality in just 3 simple steps
+            </p>
+          </div>
+        </Container>
+        <Container>
+          <div className="flex flex-col items-center justify-center py-10 md:py-20 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full divide-x-0 md:divide-x divide-y md:divide-y-0 divide-gray-900 first:border-l-2 lg:first:border-none first:border-gray-900">
+              {perks.map((perk) => (
+                <div key={perk.title} className="flex flex-col items-start px-4 md:px-6 lg:px-8 lg:py-6 py-4">
+                  <div className="flex items-center justify-center">
+                    <perk.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-lg mt-4 font-medium">
+                    {perk.title}
+                  </h3>
+                  <p className="text-start mt-2 lg:text-start text-muted-foreground">
+                    {perk.info}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Wrapper>
+
+      {/* Features */}
+      <Wrapper>
+        <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-primary rounded-full blur-[10rem] -z-10"></div>
+        <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-indigo-600 rounded-full blur-[10rem] -z-10"></div>
+        <Container>
+          <div className="mx-auto max-w-md md:text-center text-start">
+            <SectionBadge title="Features" />
+            <h2 className="text-3xl mt-6 text-gradient font-semibold">
+              Discover our Powerfull Features
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Astra offers a range of features to help you build a stunning website in no time
+            </p>
+          </div>
+        </Container>
+        <Container>
+          <div className="flex items-center justify-center mx-auto mt-8">
+            <Icons.feature className='w-auto h-8' />
+          </div>
+        </Container>
+        <Container>
+          <div className="flex flex-col items-center justify-center pt-10 md:py-20 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-8">
+              {features.map((feature) => (
+                <div key={feature.title} className="flex flex-col items-start lg:items-start px-0 md:px-0">
+                  <div className="flex items-center justify-center">
+                    <feature.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-lg font-medium mt-4">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-muted-foreground text-start lg:text-start">
+                    {feature.info}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Wrapper>
+
+      {/* Pricing */}
+      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
+        <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-blue-500 rounded-full blur-[10rem] -z-10"></div>
+        <Container>
+          <div className="max-w-md mx-auto text-start md:text-center">
+            <SectionBadge title="Pricing" />
+            <h2 className="text-3xl lg:text-4xl font-semibold mt-6 text-gradient">
+              Unlock the right plan for your business
+            </h2>
+            <p className="text-muted-foreground mt-6">
+              Choose the best plan for your business and start building your dream website today
+            </p>
+          </div>
+        </Container>
+        <Container className="flex items-center justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full md:gap-8 py-10 md:py-20 flex-wrap max-w-4xl">
+            {pricingCards.map((card) => (
+              <Card
+                key={card.title}
+                className={cn("flex flex-col w-full border-neutral-700",
+                  card.title === "Unlimited Saas" && "border-2 border-primary"
+                )}
+              >
+                <CardHeader className="border-b border-border">
+                  <span>
+                    {card.title}
+                  </span>
+                  <CardTitle className={cn(card.title !== "Unlimited Saas" && "text-muted-foreground")}>
+                    {card.price}
+                  </CardTitle>
+                  <CardDescription>
+                    {card.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-6 space-y-3">
+                  {card.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-2">
+                      <Zap className="w-4 h-4 fill-primary text-primary" />
+                      <p>{feature}</p>
+                    </div>
+                  ))}
+                </CardContent>
+                <CardFooter className="mt-auto">
+                  <Link
+                    href="#"
+                    className={cn(
+                      "w-full text-center text-primary-foreground bg-primary p-2 rounded-md text-sm font-medium",
+                      card.title !== "Unlimited Saas" && "!bg-foreground !text-background"
+                    )}
+                  >
+                    {card.buttonText}
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Wrapper>
+
+      {/* testimonials */}
+      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
+        <div className="hidden md:block absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
+        <Container>
+          <div className="max-w-md mx-auto text-start md:text-center">
+            <SectionBadge title="Our Customers" />
+            <h2 className="text-3xl lg:text-4xl font-semibold mt-6 text-gradient">
+              What People Are Saying
+            </h2>
+            <p className="text-muted-foreground mt-6">
+              See how Astra empowers businesses of all sizes. Here&apos;s what real people are saying on Twitter
+            </p>
+          </div>
+        </Container>
+        <Container>
+          <div className="py-10 md:py-20 w-full">
+            <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden py-10">
+              <Marquee pauseOnHover className="[--duration:20s] select-none">
+                {firstRow.map((review) => (
+                  <figure
+                    key={review.name}
+                    className={cn(
+                      "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+                      "border-zinc-50/[.1] bg-background over:bg-zinc-50/[.15]",
+                    )}
+                  >
+                    <div className="flex flex-row items-center gap-2">
+                      <UserIcon className="w-6 h-6" />
+                      <div className="flex flex-col">
+                        <figcaption className="text-sm font-medium">
+                          {review.name}
+                        </figcaption>
+                        <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                      </div>
+                    </div>
+                    <blockquote className="mt-2 text-sm">{review.body}</blockquote>
+                  </figure>
+                ))}
+              </Marquee>
+              <Marquee reverse pauseOnHover className="[--duration:20s] select-none">
+                {secondRow.map((review) => (
+                  <figure
+                    key={review.name}
+                    className={cn(
+                      "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+                      "border-zinc-50/[.1] bg-background over:bg-zinc-50/[.15]",
+                    )}
+                  >
+                    <div className="flex flex-row items-center gap-2">
+                      <UserIcon className="w-6 h-6" />
+                      <div className="flex flex-col">
+                        <figcaption className="text-sm font-medium">
+                          {review.name}
+                        </figcaption>
+                        <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                      </div>
+                    </div>
+                    <blockquote className="mt-2 text-sm">{review.body}</blockquote>
+                  </figure>
+                ))}
+              </Marquee>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
+            </div>
+          </div>
+        </Container>
+      </Wrapper>
+
+      {/* Newslater */}
+      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
+        <Container>
+          <LampContainer>
+            <div className="flex flex-col items-center justify-center relative w-full text-center">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl lg:!leading-snug font-semibold mt-8 text-gradient">
+                From Idea to Launch <br /> Faster Than Ever
+              </h2>
+              <p className="text-muted-foreground mt-6 max-w-md mx-auto">
+                Build stunning websites with Astra&apos;s intuitive drag-and-drop builder and powerful AI assistant
+              </p>
+              <Button variant='white' className="mt-6" asChild>
+                <Link href='/sign-in'>
+                  Get started for me
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </LampContainer>
+        </Container>
+        <Container className="relative z-[999999]">
+          <div className="flex items-center justify-center w-full -mt-40">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between w-full px-4 md:px-8 rounded-lg lg:rounded-2xl border border-border/80 py-4 md:py-8">
+              <div className="flex flex-col items-start gap-4 w-full">
+                <h4 className="text-xl md:text-2xl font-semibold capitalize">
+                  Join our newslatter
+                </h4>
+                <p className="text-muted-foreground">
+                  Be up to date with everything about AI builder
+                </p>
+              </div>
+              <div className="flex flex-col items-start gap-2 md:min-w-80 mt-5 md:mt-0 w-full md:w-max">
+                <form action="#" className="flex flex-col md:flex-row items-center gap-2 w-full md:max-w-xs">
+                  <Input
+                    required
+                    type="email"
+                    placeholder="Enter your email"
+                    className="focus-visible:ring-0 focus-visible:ring-transparent focus-visible:border-primary w-full duration-300"
+                  />
+                  <Button type="submit" size='sm' variant='secondary' className="w-full md:w-max">
+                    Subscribe
+                  </Button>
+                </form>
+                <p className="text-muted-foreground text-xs">
+                  By Subscribing you agree with our{" "}
+                  <Link href='/'>
+                    Privacy Police
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Wrapper>
+      
     </section>
   );
 }
