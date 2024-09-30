@@ -327,7 +327,7 @@ export default function HomePage() {
                     placeholder="Enter your email"
                     className="focus-visible:ring-0 focus-visible:ring-transparent focus-visible:border-primary w-full duration-300"
                   />
-                  <Button type="submit" size='sm' variant='secondary' className="w-full md:w-max">
+                  <Button type="submit" size='sm' className="w-full md:w-max">
                     Subscribe
                   </Button>
                 </form>
