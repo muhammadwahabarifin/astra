@@ -118,12 +118,12 @@
 .gradient {
   background: conic-gradient(
     from 230.29deg at 51.63% 52.16%,
-    rgb(36, 0, 255) 0deg,
-    rgb(0, 135, 255) 67.5deg,
-    rgb(108, 39, 157) 198.75deg,
-    rgb(24, 38, 163) 251.25deg,
-    rgb(54, 103, 196) 301.88deg,
-    rgb(105, 30, 255) 360deg
+    #5c00ff 0deg,
+    #782cff 67.5deg,
+    #6c279d 198.75deg,
+    #4a1d99 251.25deg,
+    #673ab7 301.88deg,
+    #691eff 1turn
   );
 }
 
