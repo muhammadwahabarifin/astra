@@ -91,7 +91,7 @@ export default function HomePage() {
         <Container>
           <div className="max-w-md mx-auto text-start md:text-center">
             <SectionBadge title="The Process" />
-            <h2 className="text-3xl lg:text-4xl font-semibold mt-6  capitalize text-gradient">
+            <h2 className="text-3xl lg:text-4xl font-semibold mt-6 capitalize text-gradient">
               Three steps to build your dream website
             </h2>
             <p className="mt-6 text-muted-foreground">
@@ -101,7 +101,8 @@ export default function HomePage() {
         </Container>
         <Container>
           <div className="flex flex-col items-center justify-center py-10 md:py-20 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full divide-x-0 md:divide-x divide-y md:divide-y-0 divide-gray-900 first:border-l-2 lg:first:border-none first:border-gray-900">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full divide-x-0 md:divide-x divide-y 
+                  md:divide-y-0 divide-gray-900 first:border-l-2 lg:first:border-none first:border-gray-900">
               {perks.map((perk) => (
                 <div key={perk.title} className="flex flex-col items-start px-4 md:px-6 lg:px-8 lg:py-6 py-4">
                   <div className="flex items-center justify-center">
@@ -163,7 +164,7 @@ export default function HomePage() {
 
       {/* Pricing */}
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">
-        <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-blue-500 rounded-full blur-[10rem] -z-10"></div>
+        <div className="md:block absolute top-0 -right-1/3 w-72 h-72 bg-blue-500 rounded-full blur-[10rem] -z-10"></div>
         <Container>
           <div className="max-w-md mx-auto text-start md:text-center">
             <SectionBadge title="Pricing" />
@@ -180,7 +181,7 @@ export default function HomePage() {
             {pricingCards.map((card) => (
               <Card
                 key={card.title}
-                className={cn("flex flex-col w-full border-neutral-700",
+                className={cn("flex flex-col w-full border-blue-500",
                   card.title === "Unlimited Saas" && "border-2 border-primary"
                 )}
               >
@@ -222,7 +223,7 @@ export default function HomePage() {
 
       {/* testimonials */}
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">
-        <div className="hidden md:block absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
+        <div className="md:block absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
         <Container>
           <div className="max-w-md mx-auto text-start md:text-center">
             <SectionBadge title="Our Customers" />
