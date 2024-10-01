@@ -1,27 +1,26 @@
-import React from 'react'
-import Icons from '@/components/global/icons'
+import Icons from "@/components/global/icons"
 import { Heart } from 'lucide-react'
 import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <footer className='flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-full max-w-6xl mx-auto lg:pt-32'>
+        <footer className="flex flex-col relative items-center justify-center border-t border-border pt-16 pb-8 px-6 lg:px-8 w-full max-w-6xl mx-auto lg:pt-32">
 
-            <div className='lg:block absolute -top-1/3 -right-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]'></div>
-            <div className='lg:block absolute bottom-0 -left-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]'></div>
+            <div className="hidden lg:block absolute -top-1/3 -right-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]"></div>
+            <div className="hidden lg:block absolute bottom-0 -left-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]"></div>
 
-            <div className='grid gap-8 xl:grid-cols-3 xl:gap-8 w-full'>
+            <div className="grid gap-8 xl:grid-cols-3 xl:gap-8 w-full">
 
-                <div className='flex flex-col items-start justify-start md:max-w-[200px]'>
-                    <div className='flex items-start'>
-                        <Icons.logo className='w-7 h-7' />
+                <div className="flex flex-col items-start justify-start md:max-w-[200px]">
+                    <div className="flex items-start">
+                        <Icons.logo className="w-7 h-7" />
                     </div>
-                    <p className='text-muted-foreground mt-4 text-sm text-start'>
-                        Build beautifull, functional websites, wighout writing code
+                    <p className="text-muted-foreground mt-4 text-sm text-start">
+                        Build beautiful, functional websites, without writing code
                     </p>
-                    <span className='mt-4 text-neutral-200 text-sm flex items-center'>
-                        Made in Indonesia with
-                        <Heart className='w-3.5 h-3.5 ml-1 fill-primary text-primary' />
+                    <span className="mt-4 text-neutral-200 text-sm flex items-center">
+                        Made in India with
+                        <Heart className="w-3.5 h-3.5 ml-1 fill-primary text-primary" />
                     </span>
                 </div>
 
@@ -132,13 +131,14 @@ const Footer = () => {
 
             </div>
 
-            <div className=''>
-                <p className='mt-8 border-t border-border/40 pt-4 md:pt-8 md:flex md:items-center md:justify-between w-full'>
+            <div className="mt-8 border-t border-border/40 pt-4 md:pt-8 md:flex md:items-center md:justify-between w-full">
+                <p className="text-sm text-muted-foreground mt-8 md:mt-0">
                     &copy; {new Date().getFullYear()} Astra AI INC. All rights reserved.
                 </p>
             </div>
-        </footer>
-    );
-};
 
-export default Footer;
+        </footer>
+    )
+}
+
+export default Footer

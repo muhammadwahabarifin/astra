@@ -1,4 +1,4 @@
-import { Footer, Navbar } from '@/components';
+import { Footer, Navbar } from '@/components'
 import { Inter } from 'next/font/google'
 import type { Metadata } from "next";
 import '@/styles/globals.css'
@@ -20,14 +20,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'min-h-screen bg-background text-foreground antialiased max-w-full overflow-x-hidden',
+          "min-h-screen bg-background text-foreground antialiased max-w-full overflow-x-hidden",
           font.className
         )}
       >
         <ThemeProvider defaultTheme='dark' enableSystem disableTransitionOnChange>
-          <Navbar />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

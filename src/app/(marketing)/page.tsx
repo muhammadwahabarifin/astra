@@ -1,4 +1,3 @@
-// import { Footer, Navbar } from '@/components'
 import { Container, Icons } from "@/components";
 import Wrapper from "@/components/global/wrapper";
 import SectionBadge from "@/components/ui/badge";
@@ -121,27 +120,27 @@ export default function HomePage() {
       </Wrapper>
 
       {/* Features */}
-      <Wrapper>
+      <Wrapper className="flex flex-col items-center justify-center py-12 relative">
         <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-primary rounded-full blur-[10rem] -z-10"></div>
         <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-indigo-600 rounded-full blur-[10rem] -z-10"></div>
         <Container>
-          <div className="mx-auto max-w-md md:text-center text-start">
+          <div className="max-w-md mx-auto text-start md:text-center">
             <SectionBadge title="Features" />
-            <h2 className="text-3xl mt-6 text-gradient font-semibold">
-              Discover our Powerfull Features
+            <h2 className="text-3xl lg:text-4xl font-semibold mt-6 t text-gradient">
+              Discover our powerful features
             </h2>
-            <p className="mt-6 text-muted-foreground">
+            <p className="text-muted-foreground mt-6">
               Astra offers a range of features to help you build a stunning website in no time
             </p>
           </div>
         </Container>
         <Container>
           <div className="flex items-center justify-center mx-auto mt-8">
-            <Icons.feature className='w-auto h-8' />
+            <Icons.feature className="w-auto h-80" />
           </div>
         </Container>
         <Container>
-          <div className="flex flex-col items-center justify-center pt-10 md:py-20 w-full">
+          <div className="flex flex-col items-center justify-center py-10 md:py-20 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-8">
               {features.map((feature) => (
                 <div key={feature.title} className="flex flex-col items-start lg:items-start px-0 md:px-0">
@@ -151,7 +150,7 @@ export default function HomePage() {
                   <h3 className="text-lg font-medium mt-4">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-muted-foreground text-start lg:text-start">
+                  <p className="text-muted-foreground mt-2 text-start lg:text-start">
                     {feature.info}
                   </p>
                 </div>
@@ -342,7 +341,7 @@ export default function HomePage() {
           </div>
         </Container>
       </Wrapper>
-      
+
     </section>
   );
 }
