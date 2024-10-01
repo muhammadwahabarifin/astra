@@ -27,7 +27,7 @@ export const SITE_CONFIG: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "shreyassihasane",
+    creator: "Wahabarf",
     title: "Astra - AI Powered Website Builder",
     description:
       "Astra is an AI powered website builder that helps you create a website in minutes. No coding skills required. Get started for free!",
